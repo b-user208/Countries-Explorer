@@ -1,0 +1,230 @@
+:root {
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+
+    --border: #bdbec0;
+
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    --radius-sm: 8px;
+    --radius-md: 12px;
+
+    --transition: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 12px 18px 12px;
+    width: clamp(320px, 100%, 768px);
+}
+
+.title {
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 48px;
+    line-height: 56px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+.text {
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.user-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 8px 4px;
+    margin-bottom: 40px;
+}
+
+svg {
+    color: var(--text-secondary);
+    width: 20px;
+    height: 20px;
+    margin: 0 8px 0 12px;
+}
+
+#user-country {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    background: transparent;
+    width: calc(100% - 100px);
+    height: 100%;
+    padding: 8px;
+    border: none;
+}
+
+#user-country:focus {
+    outline: none;
+}
+
+#btn {
+    width: 80px;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    background-color: rgb(31, 30, 30);
+    color: var(--bg-secondary);
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition);
+}
+
+#btn:hover {
+    background-color: rgb(0, 0, 0);
+}
+
+#btn:active {
+    transform: translateY(2px);
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background-color: var(--bg-secondary);
+}
+
+.country {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 32px;
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+}
+
+.country img {
+    width: 95px;
+    height: 63px;
+    border-radius: var(--radius-sm);
+}
+
+.country h1 {
+    font-size: clamp(1rem, 3vw, 2rem);
+    word-break: break-all;
+}
+
+.country-infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 32px;
+    column-gap: 24px;
+    padding: 32px;
+}
+
+.info span:nth-child(1) {
+    font-size: 13px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.info span:nth-child(2) {
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--text-primary);
+}
+
+.info:last-child {
+    grid-column: 1 / -1;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    background-color: var(--bg-primary);
+}
+
+.img-error {
+    width: 80px;
+    height: 80px;
+    padding: 24px;
+    margin-bottom: 10px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+}
+
+.title-error {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.text-error {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--text-primary);
+    padding: 12px 24px;
+}
+
+.pied {
+    border-top: 1px solid var(--border);
+    padding: 50px 30px;
+    text-align: center;
+}
+
+.title-2 {
+    color: var(--text-secondary);
+    margin-bottom: 18px;
+    font-size: 1.4em;
+    font-weight: 520;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+}
+
+.about span {
+    font-size: 12px;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries | Explorer  &target;</title>
+    <meta name="description" content="Countries Explorer est une application web permettant de rechercher des informations sur n'importe quel pays du monde.">
+    <meta name="author" content="Brou diby Ulrich">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../countries-infos/world.svg">
+</head>
+<body>
+    <div class="container">
+    <h1 class="title">Country Explorer</h1>
+    <p class="text">
+        Découvrez les pays du monde à travers leurs données essentielles.
+        Recherchez une nation et accédez instantanément à ses informations clés.
+        Simple, rapide et intuitif.
+    </p>
+    <div class="user-input">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+        </svg>
+        <input type="text" name="country" id="user-country" placeholder="Entrez un pays">
+        <button id="btn">Search</button>
+    </div>
+    <div class="output"></div>
+    <footer class="pied">
+        <h3 class="title-2">Country Explorer</h3>
+        <div class="about">
+            <span>Built by Diby ulrich . REST Countries API</span>
+            <div class="icon">
+            <a href="https://github.com/b-user208" class="github" target="blank" rel="noopener noreferer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg></a>
+            <span>github</span>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <script>
+        let country = "Ivory Coast", capital = "Yamoussoukro", population = "31 719 275", flag = "https://flagcdn.com/ci.svg", region = "Africa", currency = "West African CFA franc", languages = ["French"], exist = 0
+        let data;
+        let input = document.getElementById("user-country");
+        let btn = document.getElementById("btn");
+        let output = document.querySelector(".output");
+
+        function displayInfos() {
+            output.innerHTML = `
+            <div class="country">
+                <img src="${flag}" alt = "${country} flag">
+                <h1>${country}</h1>
+            </div>
+            <div class="country-infos">
+            <div class="info">
+                <span>Capital</span><br>
+                <span>${capital}</span>
+                </div>
+                <div class="info">
+                <span>Population</span><br>
+                <span>${population}</span>
+                </div>
+                <div class="info">
+                <span>Region</span><br>
+                <span>${region}</span>
+                </div>
+                <div class="info">
+                <span>Currency</span><br>
+                <span>${currency}</span>
+                </div>
+                <div class="info">
+                <span>Languages</span><br>
+                <span>${languages.join(" - ")}</span>
+                </div>
+            </div>
+        `;
+        }
+
+        function displayError() {
+            output.innerHTML = ` 
+            <div class="error">
+                <img src="../countries-infos/location-not-found.svg" alt="location not found" class="img-error">
+                <h1 class="title-error">Aucun pays trouvé</h1>
+                <p class="text-error">Nous n'avons trouvé aucun pays correspondant à votre recherche "<strong>${country}</strong>". Veuillez vérifier l'orthographe ou essayer une requête géographique différente.</p>
+            </div>
+                `;
+        }
+
+        displayInfos()
+
+    fetch("https://restcountries.com/v3.1/all?fields=name,capital,population,flags,region,currencies,languages")
+    .then(r => r.json())
+    .then(pays => {
+        data = pays;
+    });
+
+    input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") 
+                btn.click();
+    });
+    btn.addEventListener("click", () => {
+        country = input.value.toLowerCase().trim();
+        input.value = "";
+
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].name.common.toLowerCase() === country) {
+                country = data[i].name.common;
+                capital = data[i].capital[0]
+                currency = Object.values(data[i].currencies)[0].name
+                flag = data[i].flags.svg
+                languages = Object.values(data[i].languages)
+                population = data[i].population.toLocaleString();
+                region = data[i].region
+                exist = 1;
+                break;
+            } else 
+                    exist = 0;
+        }
+        if(exist) 
+            displayInfos();
+        else
+            displayError();
+    });
+    </script>
+</body>
+</html>
