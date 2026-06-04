@@ -6,18 +6,18 @@ Application web permettant de rechercher des informations sur n'importe quel pay
 
 - Recherche par nom de pays (en anglais)
 - Affichage du drapeau, capitale, population, région, monnaie et langues
-- Recherche décrochable au clic ou avec la touche `Entrer`
+- Recherche déclenchable au clic ou avec la touche `Enter`
 - Message d'erreur si le pays n'est pas trouvé
 
-## Empileur
+## Stack
 
 - HTML / CSS / JavaScript
-- [API des pays REST](https://restcountries.com)
+- [REST Countries API](https://restcountries.com)
 
-## Démo
+## Demo
 
 > Lien à venir
 
 ## Auteur
 
-**b_user** — [GitHub](https://github.com/b-user208)
+**Brou Diby Ulrich** — [GitHub](https://github.com/b-user208)
