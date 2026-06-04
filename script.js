@@ -38,7 +38,7 @@ let country = "Ivory Coast", capital = "Yamoussoukro", population = "31 719 275"
         function displayError() {
             output.innerHTML = ` 
             <div class="error">
-                <img src="../countries-explorer/img/location-not-found.svg" alt="location not found" class="img-error">
+                <img src="img/location-not-found.svg" alt="location not found" class="img-error">
                 <h1 class="title-error">Aucun pays trouvé</h1>
                 <p class="text-error">Nous n'avons trouvé aucun pays correspondant à votre recherche "<strong>${country}</strong>". Veuillez vérifier l'orthographe ou essayer une requête géographique différente.</p>
             </div>
