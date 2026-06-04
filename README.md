@@ -1,4 +1,4 @@
-# Country Explorer 
+# Explorateur de pays 
 
 Application web permettant de rechercher des informations sur n'importe quel pays du monde.
 
@@ -6,18 +6,18 @@ Application web permettant de rechercher des informations sur n'importe quel pay
 
 - Recherche par nom de pays (en anglais)
 - Affichage du drapeau, capitale, population, région, monnaie et langues
-- Recherche déclenchable au clic ou avec la touche `Enter`
+- Recherche décrochable au clic ou avec la touche `Entrer`
 - Message d'erreur si le pays n'est pas trouvé
 
-## Stack
+## Empileur
 
 - HTML / CSS / JavaScript
-- [REST Countries API](https://restcountries.com)
+- [API des pays REST](https://restcountries.com)
 
-## Demo
+## Démo
 
 > Lien à venir
 
 ## Auteur
 
-**Brou Diby Ulrich** — [GitHub](https://github.com/b-user208)
+**b_user** — [GitHub](https://github.com/b-user208)
