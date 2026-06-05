@@ -133,9 +133,22 @@ svg {
     border-radius: var(--radius-sm);
 }
 
+.name-official {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
 .country h1 {
     font-size: clamp(1rem, 3vw, 2rem);
-    word-break: break-all;
+}
+
+.country h3 {
+    font-size: clamp(0.8rem, 1.7vw, 1rem);
+    font-weight: 480;
+    color: var(--text-secondary);
 }
 
 .country-infos {
@@ -154,10 +167,13 @@ svg {
     color: var(--text-secondary);
 }
 
-.info span:nth-child(2) {
+.info span:nth-child(3) {
+    display: block;
     font-size: 14px;
     line-height: 20px;
     color: var(--text-primary);
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .info:last-child {
